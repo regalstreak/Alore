@@ -13,6 +13,10 @@ const AuthNavigator = createStackNavigator({
     SignupNavigator: {
         screen: SignupNavigator
     },
-})
+},
+    {
+        headerMode: "none"
+    }
+)
 
 export default AuthNavigator;
