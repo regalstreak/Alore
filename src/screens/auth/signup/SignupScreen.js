@@ -1,5 +1,6 @@
 import React from "React";
 import { View, Text, Button } from "react-native";
+import AloreButton from "library/components/aloreButton/AloreButton";
 
 export default class SignupScreen extends React.Component {
     render() {
@@ -9,8 +10,9 @@ export default class SignupScreen extends React.Component {
                     SignupScreen
                 </Text>
 
-                <Button title="Signup" onPress={() => this.props.navigation.navigate('SignupSuccessScreen')}></Button>
-                <Button title="Sign in" onPress={() => this.props.navigation.navigate('LoginScreen')}></Button>
+                <AloreButton title="Signup" navTo="SignupSuccessScreen"></AloreButton>
+                <AloreButton title="Login" navTo="LoginScreen"></AloreButton>
+
             </View>
         );
     }

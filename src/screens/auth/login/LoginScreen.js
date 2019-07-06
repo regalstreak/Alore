@@ -1,6 +1,9 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 
+import AloreTextInput from "library/components/aloreTextInput/AloreTextInput"
+import AloreButton from "library/components/aloreButton/AloreButton";
+
 export default class LoginScreen extends React.Component {
     render() {
         return (
@@ -8,9 +11,14 @@ export default class LoginScreen extends React.Component {
                 <Text>
                     LoginScreen
                 </Text>
-                <Button title="Login" onPress={() => this.props.navigation.navigate('HomeScreen')}></Button>
-                <Button title="Forgot Password" onPress={() => this.props.navigation.navigate('ResetNavigator')}></Button>
-                <Button title="Signup" onPress={() => this.props.navigation.navigate('SignupScreen')}></Button>
+
+                <AloreButton title="Login" navTo="HomeScreen"></AloreButton>
+                <AloreButton title="Forgot Password" navTo="ResetNavigator"></AloreButton>
+                <AloreButton title="Signup" navTo="SignupScreen"></AloreButton>
+
+                <AloreTextInput type={"email"}></AloreTextInput>
+                <AloreTextInput type={"password"}></AloreTextInput>
+                <AloreTextInput placeholder={"Normal text here"}></AloreTextInput>
             </View>
         );
     }
