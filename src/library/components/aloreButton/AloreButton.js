@@ -17,6 +17,10 @@ class AloreButton extends React.Component {
     _handlePress = () => {
         if (this.props.navTo) {
             this.props.navigation.navigate(this.props.navTo);
+        } else if (this.props.handlePress) {
+            this.props.handlePress();
+        } else {
+            console.log("Button pressed");
         }
     }
     render() {

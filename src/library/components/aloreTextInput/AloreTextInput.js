@@ -50,34 +50,26 @@ export default class AloreTextInput extends React.Component {
         this.setState({ inputBorderColor: colors.aloreGrey, placeholderTextColor: colors.text.aloreDarkGrey50 })
     }
 
-    _emailValidate = (email) => {
-        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (reg.test(email) === false) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-
-    _handleTextChange = (input) => {
-        this.setState({ text: input })
-        switch (this.props.type) {
-            case "email": {
-                this._emailValidate(input)
-                this.setState({ text: input, secureTextEntry: false })
-                break;
-            }
-            case "password": {
-                this.setState({ text: input, secureTextEntry: true })
-                break;
-            }
-            default: {
-                this.setState({ text: input, secureTextEntry: false })
-                break;
-            }
-        }
-    }
+    // _handleTextChange = (input) => {
+    //     this.setState({ text: input })
+    //     switch (this.props.type) {
+    //         case "email": {
+    //             this.setState({ text: input, secureTextEntry: false })
+    //             this.props.textCallback("email", input);
+    //             break;
+    //         }
+    //         case "password": {
+    //             this.setState({ text: input, secureTextEntry: true })
+    //             this.props.textCallback("email", this.state.text);
+    //             break;
+    //         }
+    //         default: {
+    //             this.setState({ text: input, secureTextEntry: false })
+    //             this.props.textCallback("none", this.state.text);
+    //             break;
+    //         }
+    //     }
+    // }
 
     render() {
         return (
@@ -86,8 +78,8 @@ export default class AloreTextInput extends React.Component {
                     <Text style={{ ...styles.text, ...styles.textInputLeft, color: this.state.placeholderTextColor }}>{this.state.textInputLeft}</Text>
                     <TextInput
                         style={{ ...styles.textInput, ...styles.text }}
-                        onChangeText={(text) => this._handleTextChange(text)}
-                        value={this.state.text}
+                        onChangeText={this.props.onChangeText}
+                        value={this.props.value}
                         onFocus={this._handleOnFocus}
                         onBlur={this._handleOnBlur}
                         secureTextEntry={this.state.secureTextEntry}
