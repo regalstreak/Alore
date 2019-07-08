@@ -1,6 +1,7 @@
 // Definitions
 
 const aloreBlue = "#1875F0";
+const aloreRed = "#ED1C24";
 const aloreYellow = "#EAA928";
 const aloreGrey = "#CDCED2";
 const aloreDarkGrey = "#3C3C3C";
@@ -10,10 +11,13 @@ const aloreBluishGrey = "#354052";
 
 const colors = {
     aloreBlue: aloreBlue,
+    aloreRed: aloreRed,
     aloreYellow: aloreYellow,
     aloreGrey: aloreGrey,
     aloreDarkGrey: aloreDarkGrey,
     aloreBluishGrey: aloreBluishGrey,
+
+    white: "#FFFFFF",
 
     text: {
         aloreDarkGrey50: aloreDarkGrey + "80",

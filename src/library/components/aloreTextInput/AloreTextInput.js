@@ -3,6 +3,7 @@ import { StyleSheet, View, TextInput, Text, PixelRatio } from "react-native";
 
 import colors from "res/colors";
 import strings from "res/strings";
+import palette from "res/palette";
 
 const devicePixelRatio = PixelRatio.get();
 // OnePlus 5T devicePixelRatio = 2.625;
@@ -80,7 +81,7 @@ export default class AloreTextInput extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={palette.buttonTextContainer}>
                 <View style={{ ...styles.textInputFlex, borderColor: this.state.inputBorderColor, }}>
                     <Text style={{ ...styles.text, ...styles.textInputLeft, color: this.state.placeholderTextColor }}>{this.state.textInputLeft}</Text>
                     <TextInput
@@ -102,17 +103,11 @@ export default class AloreTextInput extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        marginLeft: 56, // 146px
-        marginRight: 56, // 146px
-        marginTop: 40, // 100px (8dp grid please)
-        marginBottom: 0
-    },
     textInputFlex: {
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 1, // 2px
-        borderRadius: 4, // 10px
+        borderRadius: palette.dims.borderRadius,
         paddingLeft: 8, // 32px
         paddingRight: 8, // 32px
     },
@@ -123,8 +118,7 @@ const styles = StyleSheet.create({
         paddingRight: 8, // 32px
     },
     text: {
-        fontSize: 16, // 56px changed from 21
-        fontFamily: "Arial",
+        ...palette.fonts.body,
         color: colors.aloreDarkGrey
     }
 })
